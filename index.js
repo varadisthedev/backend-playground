@@ -1,20 +1,19 @@
+
+import express from 'express';
+import productRoutes from './routes/products.js';
 // index.js
-const express = require('express');
 const app = express();
 const PORT = 3000;
 
-// Middleware to parse JSON
+// Middleware
 app.use(express.json());
 
-// Import routes
-const userRoutes = require('./routes/user');
+// Import product routes
+app.use('/products', productRoutes);
 
-// Use routes (mount all /user routes)
-app.use('/user', userRoutes);
-
-// Root route
+// Root
 app.get('/', (req, res) => {
-  res.send('Welcome to the backend home page!');
+  res.send('Day 2 backend is live!');
 });
 
 // Start server
